@@ -6,7 +6,6 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
-
     const { signInUser, googleLogin, gitHubLogin} = useContext(AuthContext); 
     
 
@@ -42,9 +41,12 @@ const Login = () => {
 
     const handleSocialLogin = socialProvider => {
         socialProvider()
-        .then(result => {
-           console.log(result)
-        })
+            .then(result => {
+                console.log(result)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (

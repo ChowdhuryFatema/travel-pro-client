@@ -73,8 +73,11 @@ const Navbar = () => {
                             </>
                             :
                             <>
-                                <Link to="/login" className="btn rounded-none text-red border-red-500 bg-transparent">Login</Link>
-                                <Link to="/signUp" className="btn rounded-none bg-red text-white border-red-500">Sign up</Link>
+                                <Link to="/login" className="btn rounded-none  border-red-500 bg-transparent btn-overlay btn-overlay hover:bg-transparent relative text-red hover:text-white duration-500">
+                                <span className="z-30">
+                                    Login
+                                </span></Link>
+                                <Link to="/signUp" className="btn rounded-none bg-red text-white border-red-500 hover:bg-red-600 duration-500">Sign up</Link>
                             </>
                         }
                     </div>

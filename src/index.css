@@ -27,6 +27,84 @@
     background-color: #EF4444;
 }
 
+/* modal box css */
+
+.modal-box {
+  max-width: 900px !important;
+}
+
+/* btn css  */
+
+.btn-overlay::after {
+  content: '';
+  width: 0%;
+  height: 0%;
+  background-color: #EF4444;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: .5s;
+  z-index: 10;
+}
+.btn-overlay:hover::after {
+  width: 50%;
+  height: 100%;
+  transition: .5s;
+}
+
+
+.btn-overlay::before {
+  content: '';
+  width: 0%;
+  height: 0%;
+  background-color: #EF4444;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: .5s;
+  z-index: 10;
+}
+.btn-overlay:hover::before {
+  width: 50%;
+  height: 100%;
+  transition: .5s;
+}
+
+
+.btn-overlay2::after {
+  content: '';
+  width: 50%;
+  height: 100%;
+  background-color: #EF4444;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: .5s;
+  z-index: 10;
+}
+.btn-overlay2:hover::after {
+  width: 0%;
+  height: 0%;
+  transition: .5s;
+}
+
+
+.btn-overlay2::before {
+  content: '';
+  width: 50%;
+  height: 100%;
+  background-color: #EF4444;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: .5s;
+  z-index: 10;
+}
+.btn-overlay2:hover::before {
+  width: 0%;
+  height: 0%;
+  transition: .5s;
+}
 
 
 
