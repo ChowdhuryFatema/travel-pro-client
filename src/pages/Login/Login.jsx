@@ -1,38 +1,79 @@
 import { Link } from "react-router-dom";
 import loginImg from '../../assets/login.gif';
+import { useForm } from "react-hook-form"
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
 
+    const { signInUser } = useContext(AuthContext);
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+    const onSubmit = (data, e) => {
+
+        const { email, password } = data;
+        signInUser(email, password)
+            .then(result => {
+                console.log(result)
+                Swal.fire({
+                    title: "Good job!",
+                    text: "User Created Successfully!",
+                    icon: "success"
+                });
+                e.target.reset()
+
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: error.message,
+                });
+            })
+
+    }
+
     return (
-        <div className="bg-[#F2F2F2] min-h-[calc(100vh-76px)]">
+        <div className="bg-[#F2F2F2] min-h-[calc(100vh-67px)]">
             <div className="max-w-6xl mx-auto px-5 py-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 bg-white items-center shadow-lg">
                     <div className="w-full order-2 md:order-1 p-8 space-y-3 bg-white dark:bg-gray-50 dark:bg-gray-50 dark:text-gray-800 dark:text-gray-800 border-t md:border-t-0 border-r-0 md:border-r">
                         <h2 className="text-4xl font-bold text-center text-red">Login</h2>
 
 
-                        <form noValidate="" action="" className="space-y-6">
-                            <div className="text-sm">
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+                            <div>
                                 <label className="border-b border-[#5b5b5b5e] py-3  flex items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" /><path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" /></svg>
-                                    <input type="text" className="grow outline-none bg-transparent" placeholder="Email" />
+                                    <input type="email" className="grow outline-none bg-transparent" placeholder="Email"  {...register("email", { required: true })} />
+
+
                                 </label>
+                                {errors.email && <span className="text-red text-sm">This field is required</span>}
                             </div>
-                            <div className="text-sm">
+                            <div>
                                 <label className="border-b border-[#5b5b5b5e] py-3  flex items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z" clipRule="evenodd" /></svg>
-                                    <input type="password" className="grow outline-none bg-transparent" placeholder="password" />
+                                    <input type="password" className="grow outline-none bg-transparent" placeholder="password"  {...register("password", { required: true })} />
+
+
                                 </label>
+                                {errors.password && <span className="text-red text-sm">This field is required</span>}
 
 
                                 <div className="mt-2 flex justify-end text-xs dark:text-gray-600 dark:text-gray-600">
                                     <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                                 </div>
                             </div>
-                            <button className="btn block w-1/2 mx-auto text-center rounded-sm dark:text-gray-50 dark:text-gray-50 dark:bg-violet-600 dark:bg-violet-600 text-lg bg-red text-white">Sign in</button>
+                           <button type="submit" className="btn block w-1/2 mx-auto text-center rounded-sm dark:text-gray-50 dark:text-gray-50 dark:bg-violet-600 dark:bg-violet-600 text-lg bg-red text-white">Sign in</button>
                         </form>
 
-                        
+
                         <div className="flex items-center w-full my-4">
                             <hr className="w-full dark:text-gray-600" />
                             <p className="px-3 dark:text-gray-600">OR</p>

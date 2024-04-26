@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 const Navbar = () => {
+
+    const { user, logOutUser } = useContext(AuthContext);
+
+    console.log(user)
 
     const navLinks = <>
         <NavLink to="/" className="px-3 py-2 md:text-lg font-semibold">Home</NavLink>
@@ -10,8 +16,12 @@ const Navbar = () => {
         <NavLink to="/myList" className="px-3 py-2 md:text-lg font-semibold">My List</NavLink>
     </>
 
+    const handleLogOut = () => {
+        logOutUser()
+    }
+
     return (
-        <div className="max-w-7xl mx-auto px-5 bg-white">
+        <div className="max-w-7xl mx-auto px-5">
             <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -43,8 +53,24 @@ const Navbar = () => {
 
                     </label>
                     <div className="space-x-3">
-                        <Link to="/login" className="btn rounded-none text-red border-red-500 bg-transparent">Login</Link>
-                        <Link to="/signUp" className="btn rounded-none bg-red text-white border-red-500">Sign up</Link>
+                        {user ?
+                            <>
+                                 <div className='tooltip tooltip-bottom' data-tip={user?.displayName && user?.displayName}>
+                                    <div tabIndex={0} role="button" className="btn user-img btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full border-2 border-red-500">
+                                            <img alt="Tailwind CSS Navbar component" src={user?.photo} />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button onClick={handleLogOut} className="btn rounded-none bg-red text-white border-red-500">Sign Out</button>
+                            </>
+                            :
+                            <>
+                                <Link to="/login" className="btn rounded-none text-red border-red-500 bg-transparent">Login</Link>
+                                <Link to="/signUp" className="btn rounded-none bg-red text-white border-red-500">Sign up</Link>
+                            </>
+                        }
                     </div>
                 </div>
             </div>

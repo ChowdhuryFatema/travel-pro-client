@@ -18,7 +18,7 @@ const Banner = () => {
 
 
     return (
-        <div className='full min-h-[calc(100vh-76px)]'>
+        <div className='w-full min-h-[calc(100vh-76px)]'>
             <Swiper
                 style={{
                     '--swiper-navigation-color': '#fff',
