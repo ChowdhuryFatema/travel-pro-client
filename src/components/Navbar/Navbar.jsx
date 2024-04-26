@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import userImg from '../../assets/user.png';
 
 
 const Navbar = () => {
 
     const { user, logOutUser } = useContext(AuthContext);
-
-    console.log(user)
 
     const navLinks = <>
         <NavLink to="/" className="px-3 py-2 md:text-lg font-semibold">Home</NavLink>
@@ -55,15 +54,22 @@ const Navbar = () => {
                     <div className="space-x-3">
                         {user ?
                             <>
-                                 <div className='tooltip tooltip-bottom' data-tip={user?.displayName && user?.displayName}>
-                                    <div tabIndex={0} role="button" className="btn user-img btn-ghost btn-circle avatar">
+
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full border-2 border-red-500">
-                                            <img alt="Tailwind CSS Navbar component" src={user?.photo} />
+                                            <img alt="Tailwind CSS Navbar component" src={user?.photoURL || userImg} />
                                         </div>
                                     </div>
-
+                                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                        <li>
+                                            <a className="justify-between py-2">
+                                            {user?.displayName && user?.displayName}
+                                            </a>
+                                        </li>
+                                        <li onClick={handleLogOut}><a className="py-2">Logout</a></li>
+                                    </ul>
                                 </div>
-                                <button onClick={handleLogOut} className="btn rounded-none bg-red text-white border-red-500">Sign Out</button>
                             </>
                             :
                             <>

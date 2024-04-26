@@ -1,16 +1,19 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
 
 export const AuthContext = createContext(null)
 
 const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null)
-
-    console.log(user)
     const [loading, setLoading] = useState(false);
+
+    // social login provider
+    const googleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
 
     // create user 
     const createUser = (email, password) => {
@@ -37,11 +40,23 @@ const AuthProvider = ({children}) => {
 
     // sign in user 
     const signInUser = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    // google login 
+    const googleLogin = () => {
+        return signInWithPopup(auth, googleProvider)
+    }
+
+    // gitHub login 
+    const gitHubLogin = () => {
+        return signInWithPopup(auth, gitHubProvider)
     }
 
     // log out user 
     const logOutUser = () => {
+        setLoading(true);
         return signOut(auth)
     }
 
@@ -52,7 +67,7 @@ const AuthProvider = ({children}) => {
         });
 
         return () => unSubscribe();
-    }, [user]);
+    }, []);
 
     const authInfo = {
         user,
@@ -61,6 +76,8 @@ const AuthProvider = ({children}) => {
         createUser,
         updateUserProfile,
         signInUser,
+        googleLogin,
+        gitHubLogin,
         logOutUser,
     }
 
