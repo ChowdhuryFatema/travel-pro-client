@@ -9,7 +9,7 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     // social login provider
     const googleProvider = new GoogleAuthProvider();

@@ -1,10 +1,17 @@
-
+import { MdEdit } from "react-icons/md";
 
 const AddModal = () => {
+    
+    
+
     return (
         <div>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
-            <button className="btn" onClick={() => document.getElementById('my_modal_3').showModal()}>open modal</button>
+            <button onClick={() => document.getElementById('my_modal_3').showModal()} className="btn rounded-sm  border-red-500 hover:border-red-500 bg-transparent btn-overlay btn-overlay2 relative hover:text-red-500 text-white w-1/3 hover:bg-transparent btn-sm px-6">
+                    <span className="z-20">
+                        <MdEdit size={20} />
+                    </span>
+                </button>
             <dialog id="my_modal_3" className="modal">
                 <div className="modal-box">
                     <form method="dialog">
@@ -18,7 +25,8 @@ const AddModal = () => {
                             </div>
                             <div className="md:space-y-5">
                                 <div className="grid grid-cols-1 md:grid-cols-2 md:gap-10">
-                                    <input type="text" name="country_Name" placeholder="Country Name" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
+                                    <input type="text" name="country_Name" 
+                                    placeholder="Country Name" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
 
                                     <input type="text" name="tourists_spot_name" placeholder="Tourists Spot Name" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
                                 </div>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import signUpImg from '../../assets/signup.gif';
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
 const SignUp = () => {
 
     const {createUser, updateUserProfile} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate()
 
     const {
         register,
@@ -34,8 +36,10 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => { 
                 console.log(result)
+
+                navigate(location?.state || '/')
+
                 Swal.fire({
-                    title: "Good job!",
                     text: "User Created Successfully!",
                     icon: "success"
                   });

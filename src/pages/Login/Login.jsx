@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from '../../assets/login.gif';
 import { useForm } from "react-hook-form"
 import { useContext } from "react";
@@ -7,7 +7,8 @@ import Swal from "sweetalert2";
 
 const Login = () => {
     const { signInUser, googleLogin, gitHubLogin} = useContext(AuthContext); 
-    
+    const location = useLocation();
+    const navigate = useNavigate()
 
     const {
         register,
@@ -21,8 +22,8 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result)
+                navigate(location?.state || '/')
                 Swal.fire({
-                    title: "Good job!",
                     text: "User Created Successfully!",
                     icon: "success"
                 });
@@ -43,6 +44,7 @@ const Login = () => {
         socialProvider()
             .then(result => {
                 console.log(result)
+                navigate(location?.state || '/')
             })
             .catch(error => {
                 console.log(error)

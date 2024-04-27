@@ -106,6 +106,10 @@
   transition: .5s;
 }
 
+.card-lavel {
+  clip-path: polygon(9% 0, 90% 3%, 100% 94%, 0 100%)
+}
+
 
 
 
