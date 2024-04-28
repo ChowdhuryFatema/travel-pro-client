@@ -30,9 +30,40 @@ const Navbar = () => {
                             </div>
                             <ul tabIndex={0} className="relative z-50 menu menu-sm dropdown-content mt-3 shadow bg-base-100 rounded-box w-52">
                                 {navLinks}
+                                <div className="space-x-3">
+                                    {user ?
+                                        <>
+
+                                            <div className="dropdown dropdown-end hidden">
+                                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                                    <div className="w-10 rounded-full border-2 border-red-500">
+                                                        <img alt="Tailwind CSS Navbar component" src={user?.photoURL || userImg} />
+                                                    </div>
+                                                </div>
+                                                <ul tabIndex={0} className="relative z-50 menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                                    <li>
+                                                        <a className="justify-between py-2">
+                                                            {user?.displayName && user?.displayName}
+                                                        </a>
+                                                    </li>
+                                                    <li onClick={handleLogOut}><a className="py-2">Logout</a></li>
+                                                </ul>
+                                            </div>
+                                        </>
+                                        :
+                                        <>
+                                            <Link to="/login" className="btn hover:border-red-500 border-red-500 bg-transparent btn-overlay btn-overlay hover:bg-transparent relative text-red hover:text-white duration-500">
+                                                <span className="z-30 font-bold">
+                                                    Login
+                                                </span></Link>
+                                            <Link to="/signUp" className="btn bg-red text-white border-red-500 hover:bg-red-600 duration-500 font-bold">Sign up</Link>
+                                        </>
+                                    }
+                                </div>
+                                
                             </ul>
                         </div>
-                        <Link to="/" className="heading-font text-5xl font-semibold">Travel <span className="text-red"> Pro</span></Link>
+                        <Link to="/" className="heading-font text-3xl md:text-4xl lg:text-5xl font-semibold">Travel <span className="text-red"> Pro</span></Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -73,13 +104,13 @@ const Navbar = () => {
                                     </div>
                                 </>
                                 :
-                                <>
+                                <div className="hidden md:block">
                                     <Link to="/login" className="btn rounded-none hover:border-red-500 border-red-500 bg-transparent btn-overlay btn-overlay hover:bg-transparent relative text-red hover:text-white duration-500">
                                         <span className="z-30 font-bold">
                                             Login
                                         </span></Link>
-                                    <Link to="/signUp" className="btn rounded-none bg-red text-white border-red-500 hover:bg-red-600 duration-500 font-bold">Sign up</Link>
-                                </>
+                                    <Link to="/signUp" className="btn rounded-none bg-red text-white border-red-500 hover:bg-red-600 duration-500 font-bold ml-3">Sign up</Link>
+                                </div>
                             }
                         </div>
                     </div>
