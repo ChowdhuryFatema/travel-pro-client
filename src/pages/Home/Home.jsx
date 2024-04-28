@@ -1,6 +1,7 @@
 
 import Banner from "./Banner";
 import Blogs from "./Blogs";
+import ContactUs from "./ContactUs";
 import Countries from "./Countries";
 import TouristsSpots from "./TouristsSpots";
 
@@ -12,6 +13,7 @@ const Home = () => {
             <TouristsSpots></TouristsSpots>
             <Countries></Countries>
             <Blogs></Blogs>
+            <ContactUs></ContactUs>
         </>
     );
 };
