@@ -39,7 +39,7 @@ const AddTouristsSpot = () => {
         }
         console.log(tourDetails)
 
-        axios.post('http://localhost:5000/touristsSpots', tourDetails)
+        axios.post('https://travel-pro-server-250joqnjw-fatema-chowdhurys-projects.vercel.app/touristsSpots', tourDetails)
         .then(data => {
             console.log(data.data);
 

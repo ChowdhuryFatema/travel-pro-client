@@ -51,7 +51,7 @@ const ViewDetails = () => {
                             </div>
                             <div className="pt-6 pb-4 space-y-2">
                                 
-                                <div className="flex justify-between gap-5">
+                                <div className="flex flex-wrap justify-between gap-5">
                                     <p className="btn btn-sm bg-red-200">{travel_time}</p>
                                     <p className="btn btn-sm bg-green-200">{average_cost}</p>
                                     <p className="btn btn-sm bg-blue-200">{totalVisitorsPerYea}</p>

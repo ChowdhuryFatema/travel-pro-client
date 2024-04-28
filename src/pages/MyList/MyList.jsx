@@ -11,7 +11,7 @@ const MyList = () => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:5000/touristsSpots/${user?.email}`)
+        fetch(`https://travel-pro-server-250joqnjw-fatema-chowdhurys-projects.vercel.app/touristsSpots/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyLists(data);

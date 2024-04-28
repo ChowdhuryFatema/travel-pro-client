@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <Update></Update>,
-        loader: ({params}) => fetch(`http://localhost:5000/touristsSpot/${params.id}`)
+        loader: ({params}) => fetch(`https://travel-pro-server-250joqnjw-fatema-chowdhurys-projects.vercel.app/touristsSpot/${params.id}`)
       },
       {
         path: '/specificCountry/:country_Name',
