@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Country from "./Country/Country";
+import UseTourSpots from "../../UseTourSpots/UseTourSpots";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 
 const Countries = () => {
 
+    const {isLoading} = UseTourSpots()
     const [countries, setCountries] = useState([]);
-
 
     useEffect(() => {
         axios.get('http://localhost:5000/countries')
@@ -14,6 +16,10 @@ const Countries = () => {
             setCountries(data.data)
         })
     }, [])
+
+    if(isLoading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
 
     return (

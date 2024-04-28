@@ -1,10 +1,15 @@
 
 import UseTourSpots from "../../UseTourSpots/UseTourSpots";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import TouristsCard from "./TouristsCard";
 
 const TouristsSpots = () => {
 
-    const {data} = UseTourSpots();
+    const {data, isLoading} = UseTourSpots();
+
+    if(isLoading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     return (
         <div className="max-w-7xl mx-auto px-5">

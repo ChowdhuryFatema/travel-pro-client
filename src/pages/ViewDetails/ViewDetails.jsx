@@ -19,9 +19,7 @@ const ViewDetails = () => {
         seasonality,
         travel_time,
         totalVisitorsPerYea
-    } =singleData;
-
-
+    } = singleData;
 
 
 

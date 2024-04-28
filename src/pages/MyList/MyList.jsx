@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import MyListTable from "./MyListTable";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 
 const MyList = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, isLoading } = useContext(AuthContext);
     const [myLists, setMyLists] = useState([])
     
 
@@ -16,6 +17,10 @@ const MyList = () => {
                 setMyLists(data);
             })
     }, [user])
+
+    if(isLoading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
     return (
         <div className="max-w-7xl mx-auto px-5">

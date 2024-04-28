@@ -3,14 +3,14 @@
 const ContactUs = () => {
     return (
         <div className="max-w-7xl mx-auto px-5">
-            <div className="grid grid-cols-1 gap-8 py-16 mx-auto rounded-lg md:grid-cols-2 dark:bg-gray-100 dark:text-gray-800 justify-between">
-                <div className="">
+            <div className="grid grid-cols-1 gap-8 py-16 mx-auto rounded-lg lg:grid-cols-2 dark:bg-gray-100 dark:text-gray-800 justify-center lg:justify-between">
+                <div className="mx-auto lg:mx-0">
                     <div className="space-y-2">
                         <h2 className="text-4xl font-bold leading-tight lg:text-5xl text-center">Lets <span className="text-red">talk!</span></h2>
                         <p className="text-center">Fill in the form to start a conversation</p>
                     </div>
                    <div>
-                   <dotlottie-player src="https://lottie.host/777592ef-00c2-46e3-9c82-f35f65703461/OtEqjuQHFv.lottie" background="transparent" speed="1" style={{width: "500px", height:"400px"}} direction="1" playMode="normal" loop autoplay></dotlottie-player>
+                   <dotlottie-player src="https://lottie.host/777592ef-00c2-46e3-9c82-f35f65703461/OtEqjuQHFv.lottie" background="transparent" speed="1" direction="1" playMode="normal" loop autoplay className="w-full"></dotlottie-player>
                    </div>
                 </div>
                 <form noValidate="" className="space-y-6">

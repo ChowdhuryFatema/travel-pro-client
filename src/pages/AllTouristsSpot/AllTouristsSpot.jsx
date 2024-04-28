@@ -1,14 +1,17 @@
 
 import UseTourSpots from "../../UseTourSpots/UseTourSpots";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import TouristsSpotCard from "../../components/TouristsSpotCard/TouristsSpotCard";
 
 
 
 const AllTouristsSpot = () => {
 
-    const { data } = UseTourSpots();
+    const { data, isLoading } = UseTourSpots();
 
-    console.log(data)
+    if(isLoading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
 
 
     const handleSort = () => {
