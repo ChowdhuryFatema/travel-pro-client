@@ -161,7 +161,7 @@
 /* blog  */
 
 .blog {
-  background-image: url('https://source.unsplash.com/random/640x480'); background-position: center center; 
+  background-image: url('./assets/img.jpg'); background-position: center center; 
   background-blend-mode: multiply; 
   background-size: cover
 }

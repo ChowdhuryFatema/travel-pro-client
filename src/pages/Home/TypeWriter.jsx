@@ -9,7 +9,7 @@ const TypeWriter = () => {
                     {/* Style will be inherited from the parent element */}
                     <Typewriter
                         words={[
-                            'Bangladesh:',
+                            'Bangladesh',
                             'Thailand',
                             'Indonesia',
                             'Malaysia',
