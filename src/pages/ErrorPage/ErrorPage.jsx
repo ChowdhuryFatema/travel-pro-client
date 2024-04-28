@@ -1,19 +1,15 @@
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
     return (
-        <div>
-            <h2>Page not found</h2>
-            {/* <img src="https://lottie.host/embed/bcf655c4-a9fc-45c6-92f3-0210358be9c9/muKaygrXhu.json" alt="" /> */}
+        <div className='flex flex-col justify-center items-center min-h-screen'>
 
-            <Player
-                autoplay
-                loop
-                src="https://lottie.host/embed/bcf655c4-a9fc-45c6-92f3-0210358be9c9/muKaygrXhu.json"
-                style={{ height: '300px', width: '300px' }}
-            >
-                <Controls visible={true} buttons={['play', 'repeat', 'frame', 'debug']} />
-            </Player>
+            <dotlottie-player src="https://lottie.host/4bac5b1c-3d59-4a64-b7fa-ffa163d5d54d/51QyAbXdcb.lottie" background="transparent animate-img" style={{ width: '400px', height: '400px' }} speed="1" direction="1" playMode="normal" loop autoplay></dotlottie-player>
+
+            <Link to="/" className="btn rounded-none hover:border-red-500 border-red-500 bg-transparent btn-overlay btn-overlay hover:bg-transparent relative text-red hover:text-white duration-500">
+                <span className="z-30 font-bold text-lg">
+                    Go Home
+                </span></Link>
         </div>
     );
 };

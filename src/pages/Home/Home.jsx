@@ -1,14 +1,18 @@
 
 import Banner from "./Banner";
+import Blogs from "./Blogs";
+import Countries from "./Countries";
 import TouristsSpots from "./TouristsSpots";
 
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Banner></Banner>
             <TouristsSpots></TouristsSpots>
-        </div>
+            <Countries></Countries>
+            <Blogs></Blogs>
+        </>
     );
 };
 

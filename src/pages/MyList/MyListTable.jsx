@@ -1,9 +1,9 @@
-
+import { MdEdit } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 import PropTypes from 'prop-types';
 import axios from "axios";
 import Swal from "sweetalert2";
-import AddModal from "../../components/AddModal/AddModal";
+import { Link } from "react-router-dom";
 
 
 const MyListTable = ({ myList, myLists, setMyLists }) => {
@@ -41,7 +41,7 @@ const MyListTable = ({ myList, myLists, setMyLists }) => {
                         if (data.data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                text: "Deleted Successfully.",
                                 icon: "success"
                             });
 
@@ -76,7 +76,11 @@ const MyListTable = ({ myList, myLists, setMyLists }) => {
             <td>{average_cost}</td>
             <td>{totalVisitorsPerYea}</td>
             <th>
-               <AddModal myList={myList}></AddModal>
+                <Link to={`/update/${_id}`} className="btn rounded-sm  border-red-500 hover:border-red-500 bg-transparent btn-overlay btn-overlay2 relative hover:text-red-500 text-white w-1/3 hover:bg-transparent btn-sm px-6">
+                    <span className="z-20">
+                    <MdEdit size={20}/>
+                    </span>
+                </Link>
             </th>
             <th>
                 <button onClick={() => handleDelete(_id)} className="btn rounded-sm  border-red-500 hover:border-red-500 bg-transparent btn-overlay btn-overlay2 relative hover:text-red-500 text-white w-1/3 hover:bg-transparent btn-sm px-6">

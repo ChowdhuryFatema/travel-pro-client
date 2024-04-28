@@ -54,7 +54,7 @@ const AddTouristsSpot = () => {
     }
 
     return (
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-5">
             <div className="shadow-2xl md:p-16 p-10 my-5">
                 <div className="mb-5">
                     <h2 className="text-red text-5xl text-red font-semibold text-center">Add Tourists Spot</h2>
@@ -69,7 +69,8 @@ const AddTouristsSpot = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10">
                         <input type="text" name="location" placeholder="Location" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
 
-                        <input type="text" name="description" placeholder="Short Description" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
+
+                        <input type="text" name="photo" placeholder="Photo URL" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10">
@@ -84,8 +85,7 @@ const AddTouristsSpot = () => {
 
                         <input type="text" name="totalVisitorsPerYea" placeholder="Total Visitors Per Year" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
                     </div>
-
-                    <input type="text" name="photo" placeholder="Photo URL" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
+                    <input type="text" name="description" placeholder="Short Description" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
 
 
                     <div className="pt-5">

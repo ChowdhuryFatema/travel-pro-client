@@ -24,7 +24,7 @@ const Login = () => {
                 console.log(result)
                 navigate(location?.state || '/')
                 Swal.fire({
-                    text: "User Created Successfully!",
+                    text: "User Login Successfully!",
                     icon: "success"
                 });
                 e.target.reset()

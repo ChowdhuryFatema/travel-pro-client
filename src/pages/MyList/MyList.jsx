@@ -19,12 +19,9 @@ const MyList = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-5">
-            <h2>My list {myLists.length}</h2>
-            <div>
-
+            <div className="my-10">
                 <div className="overflow-x-auto">
                     <table className="table">
-                        {/* head */}
                         <thead>
                             <tr className="bg-base-200">
                                 <th>Tourists Spot</th>
@@ -44,16 +41,9 @@ const MyList = () => {
                                 myLists={myLists}
                                 setMyLists={setMyLists}></MyListTable>)
                             }
-
-
-
                         </tbody>
                     </table>
                 </div>
-
-
-
-
             </div>
         </div>
     );

@@ -21,14 +21,14 @@ const Navbar = () => {
 
     return (
         <div className="shadow-lg">
-            <div className="max-w-7xl mx-auto px-5">
+            <div className="max-w-7xl mx-auto">
                 <div className="navbar">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <ul tabIndex={0} className="relative z-50 menu menu-sm dropdown-content mt-3 shadow bg-base-100 rounded-box w-52">
                                 {navLinks}
                             </ul>
                         </div>
@@ -62,7 +62,7 @@ const Navbar = () => {
                                                 <img alt="Tailwind CSS Navbar component" src={user?.photoURL || userImg} />
                                             </div>
                                         </div>
-                                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                        <ul tabIndex={0} className="relative z-50 menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                             <li>
                                                 <a className="justify-between py-2">
                                                     {user?.displayName && user?.displayName}
@@ -74,11 +74,11 @@ const Navbar = () => {
                                 </>
                                 :
                                 <>
-                                    <Link to="/login" className="btn rounded-none  border-red-500 bg-transparent btn-overlay btn-overlay hover:bg-transparent relative text-red hover:text-white duration-500">
-                                        <span className="z-30">
+                                    <Link to="/login" className="btn rounded-none hover:border-red-500 border-red-500 bg-transparent btn-overlay btn-overlay hover:bg-transparent relative text-red hover:text-white duration-500">
+                                        <span className="z-30 font-bold">
                                             Login
                                         </span></Link>
-                                    <Link to="/signUp" className="btn rounded-none bg-red text-white border-red-500 hover:bg-red-600 duration-500">Sign up</Link>
+                                    <Link to="/signUp" className="btn rounded-none bg-red text-white border-red-500 hover:bg-red-600 duration-500 font-bold">Sign up</Link>
                                 </>
                             }
                         </div>

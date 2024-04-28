@@ -1,18 +1,18 @@
-import { IoLocationOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { IoLocationOutline } from "react-icons/io5";
 
-const TouristsSpotCard = ({touristsSpot}) => {
+const SingleCountry = ({country}) => {
+
     const {
         _id,
         image,
         description, 
         country_Name,
-        average_cost,
         tourists_spot_name
-    } = touristsSpot;
+    } = country;
     return (
-        <div className="card bg-base-100 shadow-xl">
+        <div className="card bg-base-100 shadow-xl my-10">
             <div className="relative rounded-2xl">
                 <figure>
                     <img className="w-full h-64 object-cover" src={image} />
@@ -27,11 +27,8 @@ const TouristsSpotCard = ({touristsSpot}) => {
                 <h2 className="font-semibold text-4xl mt-3">
                     {tourists_spot_name}
                 </h2>
-                <p className="font-semibold text-red">
-                   {average_cost}
-                </p>
                 
-                <p>{description.slice(0,120)}...</p>
+                <p className="my-2">{description.slice(0,120)}...</p>
                 
                 <div className="pt-1">
                     <Link to={`/touristsSpots/${_id}`} className="btn border-red-500 bg-transparent rounded-sm btn-overlay btn-overlay hover:border-red-500 hover:bg-transparent relative text-red hover:text-white duration-500">
@@ -45,8 +42,7 @@ const TouristsSpotCard = ({touristsSpot}) => {
     );
 };
 
-TouristsSpotCard.propTypes = {
-    touristsSpot: PropTypes.object
+SingleCountry.propTypes = {
+    country: PropTypes.object
 }
-
-export default TouristsSpotCard;
+export default SingleCountry;

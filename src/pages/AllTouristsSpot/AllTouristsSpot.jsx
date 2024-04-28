@@ -1,3 +1,4 @@
+
 import UseTourSpots from "../../UseTourSpots/UseTourSpots";
 import TouristsSpotCard from "../../components/TouristsSpotCard/TouristsSpotCard";
 
@@ -7,8 +8,26 @@ const AllTouristsSpot = () => {
 
     const { data } = UseTourSpots();
 
+    console.log(data)
+
+
+    const handleSort = () => {
+        const sortedData = data.filter((a, b) => a.average_cost - b.average_cost);
+
+        console.log(sortedData)
+    }
+
+
     return (
         <div className="max-w-7xl mx-auto px-5">
+            <div>
+                <details className="dropdown">
+                    <summary className="m-1 btn bg-red text-white text-xl mt-5 hover:bg-red-600">Sort</summary>
+                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                        <li onClick={handleSort}><a>Average Cost</a></li>
+                    </ul>
+                </details>
+            </div>
             <div className="my-10">
                 <h2 className="text-5xl font-semibold text-center">All Tourists Spots</h2>
             </div>
