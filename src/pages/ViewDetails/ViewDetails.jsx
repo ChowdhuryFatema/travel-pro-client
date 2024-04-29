@@ -8,7 +8,7 @@ const ViewDetails = () => {
     const { data } = UseTourSpots()
     const { id } = useParams()
 
-    const singleData = data.find(item => item._id == id)
+    const singleData = data.find(item => item._id == id) || {};
 
     const {
         country_Name,
@@ -45,8 +45,7 @@ const ViewDetails = () => {
                                 
                             </div>
                             <div className="pt-6 pb-4 space-y-2">
-                                <p>{description}</p>
-                                
+                                <p>{description}</p>                                
                                 
                             </div>
                             <div className="pt-6 pb-4 space-y-2">

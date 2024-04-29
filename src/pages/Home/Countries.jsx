@@ -11,7 +11,7 @@ const Countries = () => {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/countries')
+        axios.get('https://travel-pro-server.vercel.app/countries')
         .then(data => {
             setCountries(data.data)
         })

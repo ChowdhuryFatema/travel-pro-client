@@ -39,7 +39,7 @@ const AddTouristsSpot = () => {
         }
         console.log(tourDetails)
 
-        axios.post('http://localhost:5000/touristsSpots', tourDetails)
+        axios.post('https://travel-pro-server.vercel.app/touristsSpots', tourDetails)
             .then(data => {
                 console.log(data.data);
 
@@ -61,17 +61,16 @@ const AddTouristsSpot = () => {
                 </div>
                 <form onSubmit={handleAddTourSpot} className="space-y-2 md:space-y-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10">
-                        {/* <input type="text" name="country_Name" placeholder="Country Name" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" /> */}
 
                         <div className="border-b border-[#5B5B5B]">
-                            <select className="outline-none w-full hover:border-none">
-                                <option className="py-5 outline-none w-full bg-transparent" name="country_Name">Select Country</option>
-                                <option>Bangladesh</option>
-                                <option>Thailand</option>
-                                <option>Indonesia</option>
-                                <option>Malaysia</option>
-                                <option>Vietnam</option>
-                                <option>Cambodia</option>
+                            <select name="country_Name" className="outline-none w-full hover:border-none">
+                                <option className="py-5 outline-none w-full bg-transparent">Select Country</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Cambodia">Cambodia</option>
                             </select>
                         </div>
 

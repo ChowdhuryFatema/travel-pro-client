@@ -55,7 +55,7 @@ const Update = () => {
 
 
 
-        axios.put(`http://localhost:5000/touristsSpot/${_id}`, newData)
+        axios.put(`https://travel-pro-server.vercel.app/touristsSpot/${_id}`, newData)
             .then(data => {
                 console.log(data.data);
 

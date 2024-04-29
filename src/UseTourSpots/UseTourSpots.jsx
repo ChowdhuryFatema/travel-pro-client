@@ -5,7 +5,7 @@ const UseTourSpots = () => {
         
         queryKey: ["touristsSpots"],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/touristsSpots');
+            const res = await fetch('https://travel-pro-server.vercel.app/touristsSpots');
             const data = await res.json();
             return data;
         }

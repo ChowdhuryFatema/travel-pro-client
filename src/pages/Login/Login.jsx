@@ -54,8 +54,8 @@ const Login = () => {
     return (
         <div className="bg-[#F2F2F2] min-h-[calc(100vh-67px)]">
             <div className="max-w-6xl mx-auto px-5 py-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 bg-white items-center shadow-lg">
-                    <div className="w-full order-2 md:order-1 p-8 space-y-3 bg-white dark:bg-gray-50 dark:bg-gray-50 dark:text-gray-800 dark:text-gray-800 border-t md:border-t-0 border-r-0 md:border-r">
+                <div className="grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-gray-800 items-center shadow-lg">
+                    <div className="w-full order-2 md:order-1 p-8 space-y-3 bg-white dark:bg-gray-800 border-t md:border-t-0 border-r-0 md:border-r">
                         <h2 className="text-4xl font-bold text-center text-red">Login</h2>
 
 

@@ -8,6 +8,8 @@ const TouristsSpotCard = ({ touristsSpot }) => {
         image,
         description,
         country_Name,
+        seasonality,
+        location,
         average_cost,
         tourists_spot_name
     } = touristsSpot;
@@ -34,6 +36,11 @@ const TouristsSpotCard = ({ touristsSpot }) => {
                 </div>
 
                 <p>{description.slice(0, 120)}...</p>
+                <div className='my-5 flex flex-wrap justify-between'>
+                    <p className='btn btn-sm bg-green-100'>{seasonality}</p>
+                    <p className='btn btn-sm bg-red-100'>{location}</p>
+                </div>
+
 
                 <div className="pt-1">
                     <Link to={`/touristsSpots/${_id}`} className="btn border-red-500 bg-transparent rounded-sm btn-overlay btn-overlay hover:border-red-500 hover:bg-transparent relative text-red hover:text-white duration-500">
