@@ -55,9 +55,9 @@ const AddTouristsSpot = () => {
 
     return (
         <div className="max-w-5xl mx-auto px-5">
-            <div className="shadow-2xl md:p-16 p-10 my-5">
-                <div className="mb-5">
-                    <h2 className="text-red text-5xl text-red font-semibold text-center">Add Tourists Spot</h2>
+            <div className="shadow-2xl md:p-16 p-5 my-5">
+                <div className="mb-8">
+                    <h2 className="text-red text-3xl md:text-5xl text-red font-semibold text-center">Add Tourists Spot</h2>
                 </div>
                 <form onSubmit={handleAddTourSpot} className="space-y-2 md:space-y-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10">

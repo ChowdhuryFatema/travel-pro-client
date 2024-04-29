@@ -1,27 +1,28 @@
 import { Link, useNavigate } from "react-router-dom";
 import signUpImg from '../../assets/signup.gif';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-
+import { LuEye, LuEyeOff } from "react-icons/lu";
 import { useForm } from "react-hook-form"
 import Swal from "sweetalert2";
 
 
 const SignUp = () => {
 
-    const {createUser, updateUserProfile, logOutUser} = useContext(AuthContext);
-    
+    const [showPassword, setShowPassword] = useState(false)
+    const { createUser, updateUserProfile, logOutUser } = useContext(AuthContext);
+
     const navigate = useNavigate()
 
     const {
         register,
         handleSubmit,
         formState: { errors },
-      } = useForm();
+    } = useForm();
 
-      const onSubmit = (data, e) => {
+    const onSubmit = (data, e) => {
 
-        const { name, email, photo, password} = data;
+        const { name, email, photo, password } = data;
 
         if (password.length < 6) {
             return alert("Your password must be at least 6 characters")
@@ -34,7 +35,7 @@ const SignUp = () => {
         }
 
         createUser(email, password)
-            .then(result => { 
+            .then(result => {
                 console.log(result)
 
                 logOutUser()
@@ -43,21 +44,21 @@ const SignUp = () => {
                 Swal.fire({
                     text: "User Created Successfully!",
                     icon: "success"
-                  });
-                  e.target.reset()
+                });
+                e.target.reset()
 
-                  updateUserProfile(name, photo)
-                  
+                updateUserProfile(name, photo)
+
             })
             .catch(error => {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
                     text: error.message,
-                  });
+                });
             })
 
-}
+    }
 
 
     return (
@@ -70,17 +71,27 @@ const SignUp = () => {
                         </div>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="space-y-2">
-                                <input type="text" name="name" placeholder="Name" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" {...register("name", { required: true })}/>
-                                 {errors.name && <span className="text-red text-sm">This field is required</span>}
+                                <input type="text" name="name" placeholder="Name" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" {...register("name", { required: true })} />
+                                {errors.name && <span className="text-red text-sm">This field is required</span>}
 
-                                <input type="email" name="email" placeholder="Email" className="border-b border-[rgb(91,91,91)] py-3 outline-none w-full bg-transparent" {...register("email", { required: true })}/> 
+                                <input type="email" name="email" placeholder="Email" className="border-b border-[rgb(91,91,91)] py-3 outline-none w-full bg-transparent" {...register("email", { required: true })} />
 
                                 {errors.email && <span className="text-red text-sm">This field is required</span>}
 
-                                <input type="url" name="photo" placeholder="Photo URL" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" {...register("photo", { required: true })}/>
+                                <input type="url" name="photo" placeholder="Photo URL" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" {...register("photo", { required: true })} />
                                 {errors.photo && <span className="text-red text-sm">This field is required</span>}
 
-                                <input type="password" name="password" placeholder="Password" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" {...register("password", { required: true })}/> 
+                                <div className="relative">
+                                    <input type={showPassword ? 'text' : 'password'} name="password" placeholder="Password" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" {...register("password", { required: true })} />
+
+                                    <p
+                                        onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-2">
+
+                                        {showPassword ?
+                                            <LuEye className="text-red" size={20} /> :
+                                            <LuEyeOff className="text-red" size={20} />}
+                                    </p>
+                                </div>
 
                                 {errors.password && <span className="text-red text-sm">This field is required</span>}
                                 <br />

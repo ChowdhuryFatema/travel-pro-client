@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import userImg from '../../assets/user.png';
@@ -7,6 +7,7 @@ import userImg from '../../assets/user.png';
 const Navbar = () => {
 
     const { user, logOutUser } = useContext(AuthContext);
+    const [theme, setTheme] = useState('');
 
     const navLinks = <>
         <NavLink to="/" className="px-3 py-2 md:text-lg font-semibold">Home</NavLink>
@@ -17,6 +18,26 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOutUser()
+    }
+
+
+
+
+    useEffect(() => {
+        const currentTheme = localStorage.getItem('theme');
+        localStorage.setItem('theme', theme || currentTheme);
+
+        const localTheme = localStorage.getItem('theme');
+        document.querySelector('html').setAttribute('data-theme', localTheme);
+
+    }, [theme]);
+
+    const handleToggle = (e) => {
+        if (e.target.checked) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
     }
 
     return (
@@ -37,7 +58,7 @@ const Navbar = () => {
                                             <div className="dropdown dropdown-end hidden">
                                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                                     <div className="w-10 rounded-full border-2 border-red-500">
-                                                        <img alt="Tailwind CSS Navbar component" src={user?.photoURL || userImg} />
+                                                        < img alt="Tailwind CSS Navbar component" src={user?.photoURL || userImg} />
                                                     </div>
                                                 </div>
                                                 <ul tabIndex={0} className="relative z-50 menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
@@ -60,7 +81,7 @@ const Navbar = () => {
                                         </>
                                     }
                                 </div>
-                                
+
                             </ul>
                         </div>
                         <Link to="/" className="heading-font text-3xl md:text-4xl lg:text-5xl font-semibold">Travel <span className="text-red"> Pro</span></Link>
@@ -71,12 +92,16 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <label className="swap swap-rotate me-2">
+                        <label onChange={handleToggle} className="swap swap-rotate me-2">
 
                             {/* this hidden checkbox controls the state */}
-                            <input type="checkbox" className="theme-controller" value="dark" />
+                            <input
+                                type="checkbox"
+                                className="theme-controller"/>
 
                             {/* sun icon */}
+
+                            
                             <svg className="swap-off fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" /></svg>
 
                             {/* moon icon */}

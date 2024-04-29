@@ -1,11 +1,14 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from '../../assets/login.gif';
 import { useForm } from "react-hook-form"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 import Swal from "sweetalert2";
 
 const Login = () => {
+
+    const [showPassword, setShowPassword] = useState(false)
     const { signInUser, googleLogin, gitHubLogin} = useContext(AuthContext); 
     const location = useLocation();
     const navigate = useNavigate()
@@ -70,20 +73,28 @@ const Login = () => {
                                 {errors.email && <span className="text-red text-sm">This field is required</span>}
                             </div>
                             <div>
-                                <label className="border-b border-[#5b5b5b5e] py-3  flex items-center gap-2">
+                                <label className="border-b relative border-[#5b5b5b5e] py-3  flex items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z" clipRule="evenodd" /></svg>
-                                    <input type="password" className="grow outline-none bg-transparent" placeholder="password"  {...register("password", { required: true })} />
+                                    <input type={showPassword ? 'text' : 'password'} className="grow outline-none bg-transparent" placeholder="password"  {...register("password", { required: true })} />
 
+
+                                    <p
+                                        onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-2">
+
+                                        {showPassword ?
+                                            <LuEye className="text-red" size={20} /> :
+                                            <LuEyeOff className="text-red" size={20} />}
+                                    </p>
 
                                 </label>
                                 {errors.password && <span className="text-red text-sm">This field is required</span>}
 
 
-                                <div className="mt-2 flex justify-end text-xs dark:text-gray-600 dark:text-gray-600">
+                                <div className="mt-2 flex justify-end text-xs  dark:text-gray-600">
                                     <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                                 </div>
                             </div>
-                           <button type="submit" className="btn block w-1/2 mx-auto text-center rounded-sm dark:text-gray-50 dark:text-gray-50 dark:bg-violet-600 dark:bg-violet-600 text-lg bg-red text-white">Sign in</button>
+                           <button type="submit" className="btn block w-1/2 mx-auto text-center rounded-sm dark:text-gray-50   dark:bg-violet-600 text-lg bg-red text-white">Sign in</button>
                         </form>
 
 
@@ -104,8 +115,8 @@ const Login = () => {
                                 <p>Login with GitHub</p>
                             </button>
                         </div>
-                        <p className="text-xs text-center sm:px-6 dark:text-gray-600 dark:text-gray-600">Do not have an account ?
-                            <Link to="/signUp" rel="noopener noreferrer" className="underline dark:text-gray-800 dark:text-gray-800 text-blue-500 font-semibold"> Sign up</Link>
+                        <p className="text-xs text-center sm:px-6 dark:text-gray-600">Do not have an account ?
+                            <Link to="/signUp" rel="noopener noreferrer" className="underline dark:text-gray-800 text-blue-500 font-semibold"> Sign up</Link>
                         </p>
                     </div>
                     <div className="order-1 md:order-2">
