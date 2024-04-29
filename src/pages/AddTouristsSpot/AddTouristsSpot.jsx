@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const AddTouristsSpot = () => {
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const handleAddTourSpot = e => {
         e.preventDefault();
@@ -34,23 +34,23 @@ const AddTouristsSpot = () => {
             travel_time,
             totalVisitorsPerYea,
             user_name,
-            user_email, 
+            user_email,
             image
         }
         console.log(tourDetails)
 
-        axios.post('https://travel-pro-server-250joqnjw-fatema-chowdhurys-projects.vercel.app/touristsSpots', tourDetails)
-        .then(data => {
-            console.log(data.data);
+        axios.post('http://localhost:5000/touristsSpots', tourDetails)
+            .then(data => {
+                console.log(data.data);
 
-            if(data.data.insertedId){
-                Swal.fire({
-                    text: "Tourists Spot Added Successfully!",
-                    icon: "success"
-                });
-                form.reset()
-            }
-        })
+                if (data.data.insertedId) {
+                    Swal.fire({
+                        text: "Tourists Spot Added Successfully!",
+                        icon: "success"
+                    });
+                    form.reset()
+                }
+            })
     }
 
     return (
@@ -61,7 +61,19 @@ const AddTouristsSpot = () => {
                 </div>
                 <form onSubmit={handleAddTourSpot} className="space-y-2 md:space-y-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10">
-                        <input type="text" name="country_Name" placeholder="Country Name" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
+                        {/* <input type="text" name="country_Name" placeholder="Country Name" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" /> */}
+
+                        <div className="border-b border-[#5B5B5B]">
+                            <select className="outline-none w-full hover:border-none">
+                                <option className="py-5 outline-none w-full bg-transparent" name="country_Name">Select Country</option>
+                                <option>Bangladesh</option>
+                                <option>Thailand</option>
+                                <option>Indonesia</option>
+                                <option>Malaysia</option>
+                                <option>Vietnam</option>
+                                <option>Cambodia</option>
+                            </select>
+                        </div>
 
                         <input type="text" name="tourists_spot_name" placeholder="Tourists Spot Name" className="border-b border-[#5B5B5B] py-3 outline-none w-full bg-transparent" />
                     </div>

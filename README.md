@@ -1,8 +1,20 @@
-# React + Vite
+# Website Name: Travel Pro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Website Link : https://travel-pro-46258.web.app/
 
-Currently, two official plugins are available:
+## Website category: Southeast Asia
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features:
+- This is a travel website. On this site, users will get all the information about traveling to South Asian countries.
+
+- User Can Create an Account and Login Via Gmail and Github firebase authentication.
+
+- The user can choose the places of his choice and list them for travel.
+
+- User can delete, add, update places.
+
+- Users can set dark and light mood on the website.
+
+# Added packages:
+- Lottie React
+- React-simple-typewriter

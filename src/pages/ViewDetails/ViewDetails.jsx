@@ -34,11 +34,11 @@ const ViewDetails = () => {
                         </div>
 
 
-                        <div className="flex flex-col col-span-12 p-6 divide-y lg:col-span-6 lg:p-10 dark:divide-gray-300">
+                        <div className="flex flex-col col-span-12 md:p-6 divide-y lg:col-span-6 lg:p-10 dark:divide-gray-300">
                             <div className="pt-6 pb-4 space-y-2">
                                 <span>{seasonality}</span>
                                 <h1 className="text-4xl font-bold text-red">{country_Name}</h1>
-                                <div className="flex justify-between gap-5">
+                                <div className="md:flex justify-between gap-5">
                                     <p className="text-lg font-semibold">{tourists_spot_name}</p>
                                     <p className="text-lg font-semibold"><span className="text-red">Location:</span> {location}</p>
                                 </div>

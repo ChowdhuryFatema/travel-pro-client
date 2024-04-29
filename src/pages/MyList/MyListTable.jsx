@@ -33,7 +33,7 @@ const MyListTable = ({ myList, myLists, setMyLists }) => {
             if (result.isConfirmed) {
 
 
-                axios.delete(`https://travel-pro-server-250joqnjw-fatema-chowdhurys-projects.vercel.app/touristsSpots/${_id}`)
+                axios.delete(`http://localhost:5000/touristsSpots/${_id}`)
                     .then(data => {
                         console.log(data.data);
 

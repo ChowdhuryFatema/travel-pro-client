@@ -15,7 +15,7 @@ const Banner = () => {
     return (
         <div className='mb-20'>
             <div className='grid grid-cols-1 md:grid-cols-2'>
-                <div className='hidden md:block'>
+                <div className='order-2 md:order-1'>
                     <Swiper
 
                         pagination={{ clickable: true }}
@@ -45,10 +45,10 @@ const Banner = () => {
 
                     </Swiper>
                 </div>
-                <div className='banner banner-overlay relative'>
+                <div className='banner banner-overlay relative order-1 md:order-2'>
                     <div className='flex items-center h-[90vh]'>
                         <div className='w-4/5 mx-auto z-40 relative space-y-3'>
-                            <h2 className='text-white font-bold text-6xl  lg:text-8xl'>
+                            <h2 className='text-white font-bold text-5xl md:text-6xl  lg:text-8xl'>
                                 <span className='text-[#FF4838]'> <TypeWriter></TypeWriter></span>
                             </h2>
 
