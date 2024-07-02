@@ -70,13 +70,13 @@ Users can effortlessly add countries to their personalized lists, with control o
 - Client Side Hosting: Firebase
 
 ### Installation
-Clone the repository:
 
-### Make sure you have the following installed:
+#### Make sure you have the following installed:
 - Node.js
 - npm
 - Git
-
+- 
+#### Clone the repository:
 - git clone https://github.com/ChowdhuryFatema/tech-app-client.git
 - cd your-repository
 - Install dependencies:
